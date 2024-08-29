@@ -1,12 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+//Import Navigation
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+const Stack = createNativeStackNavigator();
+
+//Import Screens
+import SearchScreen from './screens/SearchScreen';
+import ResultShowScreen from './screens/ResultShowScreen';
+
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="SearchScreen"
+                      component={SearchScreen} 
+                      options={{
+                        title : "Yemek Sepetim"
+                        }}  />
+        <Stack.Screen name="ResultShowhScreen"
+                      component={ResultShowScreen} 
+                      options={{
+                        title : "Mağaza Detay"
+                        }}  />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
